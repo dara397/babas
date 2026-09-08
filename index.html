@@ -638,7 +638,6 @@
     var thumbs = [].slice.call(document.querySelectorAll('.hero-thumb'));
     if (slides.length > 1) {
       var DELAY = 7000, cur = 0, timer = null;
-      var still = window.matchMedia('(prefers-reduced-motion: reduce)');
 
       function load(n) {                       // pull images in only as they are needed
         var img = slides[(n + slides.length) % slides.length];
@@ -654,7 +653,7 @@
         if (thumbs[cur]) { thumbs[cur].classList.add('is-active'); thumbs[cur].setAttribute('aria-selected', 'true'); }
       }
       function stop() { if (timer) { clearInterval(timer); timer = null; } }
-      function start() { stop(); if (!still.matches) { timer = setInterval(function () { show(cur + 1); }, DELAY); } }
+      function start() { stop(); timer = setInterval(function () { show(cur + 1); }, DELAY); }
 
       thumbs.forEach(function (t, n) {
         t.addEventListener('click', function () { show(n); start(); });
@@ -662,6 +661,13 @@
       document.addEventListener('visibilitychange', function () {
         if (document.hidden) { stop(); } else { start(); }
       });
+      var frame = document.querySelector('.hero-photo');
+      if (frame) {
+        frame.addEventListener('mouseenter', stop);
+        frame.addEventListener('mouseleave', start);
+        frame.addEventListener('focusin', stop);
+        frame.addEventListener('focusout', start);
+      }
 
       load(1);
       start();
