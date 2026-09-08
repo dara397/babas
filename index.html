@@ -106,7 +106,17 @@
   .hero-rating{display:flex;align-items:center;gap:12px;margin-top:36px;color:#9A948A;font-size:14px;flex-wrap:wrap}
   .stars{color:var(--gold);letter-spacing:2px;font-size:16px}
   .hero-photo{border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:10px;background:rgba(255,255,255,.03)}
-  .hero-photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px}
+  /* Hero slideshow: auto-rotating photo + thumbnail picker */
+  .hero-stage{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:rgba(255,255,255,.05)}
+  .hero-slide{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
+  .hero-slide.is-active{opacity:1}
+  .hero-thumbs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:10px}
+  .hero-thumb{display:block;flex:0 0 calc((100% - 32px)/5);padding:0;margin:0;border:1px solid rgba(255,255,255,.16);border-radius:8px;overflow:hidden;background:none;cursor:pointer;opacity:.5;transition:opacity .25s ease,border-color .25s ease;-webkit-appearance:none;appearance:none}
+  .hero-thumb img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+  .hero-thumb:hover{opacity:.85}
+  .hero-thumb.is-active{opacity:1;border-color:var(--mint)}
+  .hero-thumb:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+  @media (prefers-reduced-motion:reduce){.hero-slide{transition:none}}
 
   /* Trust bar */
   .trustbar{background:var(--dark-2);color:#9A948A;border-top:1px solid rgba(255,255,255,.07)}
@@ -241,6 +251,7 @@
     .footer-contact{margin-left:0;text-align:left}
   }
 </style>
+<noscript><style>.hero-thumbs{display:none}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#services">Skip to content</a>
@@ -284,7 +295,28 @@
         </div>
       </div>
       <div class="hero-photo">
-        <img src="assets/photo-1.webp" alt="Guardian Towing tow truck loading a vehicle at night in Huntington Beach" width="348" height="348">
+        <div class="hero-stage" id="hero-stage">
+          <img class="hero-slide is-active" src="assets/slide-1.webp" alt="Guardian Towing tow truck loading a white Lamborghini at night in Huntington Beach" width="960" height="720" fetchpriority="high" decoding="async">
+          <img class="hero-slide" data-src="assets/slide-2.webp" alt="Guardian Towing tow truck towing a white Porsche 911 GT3 RS from a private driveway" width="960" height="720" decoding="async">
+          <img class="hero-slide" data-src="assets/slide-3.webp" alt="Guardian Towing Ram 5500 tow truck with a blue Dodge Charger on wheel dollies" width="960" height="720" decoding="async">
+          <img class="hero-slide" data-src="assets/slide-4.webp" alt="White Porsche 911 GT3 RS lifted on wheel dollies for a damage-free tow" width="960" height="720" decoding="async">
+          <img class="hero-slide" data-src="assets/slide-5.webp" alt="Blue Dodge Charger Scat Pack Widebody loaded on wheel dollies" width="960" height="720" decoding="async">
+          <img class="hero-slide" data-src="assets/slide-6.webp" alt="Ferrari 488 wheel secured with soft straps and padding for a no-scratch tow" width="960" height="720" decoding="async">
+          <img class="hero-slide" data-src="assets/slide-7.webp" alt="Chevrolet Silverado pickup lifted on wheel dollies in a residential driveway" width="960" height="720" decoding="async">
+          <img class="hero-slide" data-src="assets/slide-8.webp" alt="Classic Volkswagen Beetle body and chassis moved on a tow dolly" width="960" height="720" decoding="async">
+          <img class="hero-slide" data-src="assets/slide-9.webp" alt="Harley-Davidson motorcycle strapped down for motorcycle towing" width="960" height="720" decoding="async">
+        </div>
+        <div class="hero-thumbs" role="tablist" aria-label="Choose a job photo">
+          <button class="hero-thumb is-active" type="button" role="tab" aria-selected="true" aria-controls="hero-stage" aria-label="Show photo 1: Guardian Towing tow truck loading a white Lamborghini at night in Huntington Beach"><img src="assets/thumb-1.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 2: Guardian Towing tow truck towing a white Porsche 911 GT3 RS from a private driveway"><img src="assets/thumb-2.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 3: Guardian Towing Ram 5500 tow truck with a blue Dodge Charger on wheel dollies"><img src="assets/thumb-3.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 4: White Porsche 911 GT3 RS lifted on wheel dollies for a damage-free tow"><img src="assets/thumb-4.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 5: Blue Dodge Charger Scat Pack Widebody loaded on wheel dollies"><img src="assets/thumb-5.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 6: Ferrari 488 wheel secured with soft straps and padding for a no-scratch tow"><img src="assets/thumb-6.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 7: Chevrolet Silverado pickup lifted on wheel dollies in a residential driveway"><img src="assets/thumb-7.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 8: Classic Volkswagen Beetle body and chassis moved on a tow dolly"><img src="assets/thumb-8.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 9: Harley-Davidson motorcycle strapped down for motorcycle towing"><img src="assets/thumb-9.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -599,6 +631,40 @@
     }
     if (another && card) {
       another.addEventListener('click', function () { card.classList.remove('is-sent'); });
+    }
+
+    // 3) Hero slideshow — advances every 7s, thumbnails jump straight to a photo.
+    var slides = [].slice.call(document.querySelectorAll('.hero-slide'));
+    var thumbs = [].slice.call(document.querySelectorAll('.hero-thumb'));
+    if (slides.length > 1) {
+      var DELAY = 7000, cur = 0, timer = null;
+      var still = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      function load(n) {                       // pull images in only as they are needed
+        var img = slides[(n + slides.length) % slides.length];
+        if (img && img.dataset.src) { img.src = img.dataset.src; delete img.dataset.src; }
+      }
+      function show(n) {
+        n = (n + slides.length) % slides.length;
+        load(n); load(n + 1);
+        slides[cur].classList.remove('is-active');
+        if (thumbs[cur]) { thumbs[cur].classList.remove('is-active'); thumbs[cur].setAttribute('aria-selected', 'false'); }
+        cur = n;
+        slides[cur].classList.add('is-active');
+        if (thumbs[cur]) { thumbs[cur].classList.add('is-active'); thumbs[cur].setAttribute('aria-selected', 'true'); }
+      }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function start() { stop(); if (!still.matches) { timer = setInterval(function () { show(cur + 1); }, DELAY); } }
+
+      thumbs.forEach(function (t, n) {
+        t.addEventListener('click', function () { show(n); start(); });
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) { stop(); } else { start(); }
+      });
+
+      load(1);
+      start();
     }
   })();
 </script>

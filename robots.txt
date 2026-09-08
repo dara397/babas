@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /variants/
+
+Sitemap: https://dara397.github.io/babas/sitemap.xml
