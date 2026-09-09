@@ -230,6 +230,45 @@
   .footer-contact .phone{color:var(--mint);font-weight:600;font-size:17px}
   .footer-contact a:hover{color:#fff}
 
+  /* Pricing */
+  .pricing h2{font-size:clamp(34px,5vw,52px);margin-top:14px}
+  .rate-toggle{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+  .rate-toggle .lbl{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
+  .rate-toggle .lbl.is-on{color:var(--ink)}
+  .switch{position:relative;width:54px;height:30px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;padding:0;flex:none}
+  .switch::after{content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--muted-2);transition:transform .2s ease,background .2s ease}
+  .switch[aria-checked="true"]{background:var(--dark);border-color:var(--dark)}
+  .switch[aria-checked="true"]::after{transform:translateX(24px);background:var(--mint)}
+  .rate-note{display:flex;gap:12px;align-items:flex-start;background:var(--bg-alt);border-left:3px solid var(--green);border-radius:0 12px 12px 0;padding:15px 20px;font-size:14.5px;line-height:1.6;color:var(--ink-2);margin-bottom:28px;max-width:70ch}
+  .rate-note .tag{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--green);flex:none;padding-top:3px}
+  .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(186px,1fr));gap:1px;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .price-card{background:#fff;padding:24px 22px 26px;box-shadow:0 0 0 1px var(--line)}
+  .price-card:hover{background:var(--card-hover)}
+  .price-card .city{display:block;font-size:15px;font-weight:600;letter-spacing:-.01em;min-height:2.9em}
+  .price-card .amt{font-family:var(--serif);font-size:38px;line-height:1;margin-top:10px;display:block}
+  .price-card .amt.range{font-size:28px}
+  .price-card .sub{font-size:12.5px;color:var(--muted-2);margin-top:9px;line-height:1.55;display:block}
+  .price-card .alt{display:block;font-weight:600;color:var(--green)}
+  .price-card.home{background:var(--dark);color:#fff;grid-column:span 2}
+  .price-card.home:hover{background:var(--dark-hover)}
+  .price-card.home .eyebrow{display:block;margin-bottom:8px;color:var(--mint)}
+  .price-card.home .city{font-size:19px;min-height:0}
+  .price-card.home .amt{font-size:52px}
+  .price-card.home .sub{color:var(--on-dark-2)}
+  .price-card.home .alt{color:var(--mint)}
+  .price-sub-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:56px 0 20px}
+  .price-sub-head h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.4vw,34px);letter-spacing:-.01em}
+  .price-sub-head .c{font-size:13px;color:var(--muted-2)}
+  .price-fine{margin-top:22px;border:1px solid var(--line);border-radius:16px;background:#fff;padding:24px 26px;font-size:14.5px;line-height:1.7;color:var(--muted);max-width:none}
+  .price-fine strong{color:var(--ink)}
+  .price-fine ul{margin:10px 0 0;padding-left:20px}
+  .price-fine li{margin-top:6px}
+  @media (max-width:520px){
+    .price-grid{grid-template-columns:1fr 1fr}
+    .price-card.home{grid-column:span 2}
+    .price-card .amt{font-size:32px}
+  }
+
   /* Responsive */
   @media (max-width:920px){
     .hero-inner,.about,.location,.request .inner{grid-template-columns:1fr;gap:48px}
@@ -264,6 +303,7 @@
     </a>
     <nav class="nav" aria-label="Primary">
       <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#pricing">Pricing</a>
       <a class="nav-link" href="#reviews">Reviews</a>
       <a class="nav-link" href="#hours">Hours &amp; Area</a>
       <a class="btn-call" href="tel:+17145845600"><span class="dot"></span>(714)&nbsp;584-5600</a>
@@ -354,6 +394,140 @@
           <span class="d">Call and describe it — (714) 584-5600</span>
         </span>
       </a>
+    </div>
+  </section>
+
+  <section class="section pricing" id="pricing" aria-labelledby="pricing-h">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Flat-rate pricing</span>
+        <h2 id="pricing-h" class="h-display">Know the price before we hook up</h2>
+      </div>
+      <p>Flat rates by city, three miles included on every tow, and no surprise fees at drop-off. Outside these cities? Call and we'll quote you on the spot.</p>
+    </div>
+
+    <div class="rate-toggle">
+      <span class="lbl is-on" id="lbl-day">Daytime · 6am–10pm</span>
+      <button type="button" class="switch" id="rate-switch" role="switch" aria-checked="false" aria-labelledby="lbl-day lbl-night"></button>
+      <span class="lbl" id="lbl-night">Late night · 10pm–6am</span>
+    </div>
+
+    <p class="rate-note"><span class="tag">Night rate</span><span>A <strong>$30 after-hours surcharge</strong> applies to every call dispatched between 10:00pm and 6:00am, Monday through Saturday. Sundays we run 7:00am&#8211;3:00pm; calls after that roll to Monday morning. If you're reading this during night hours the prices below already show the night rate.</span></p>
+
+    <div class="price-grid">
+      <div class="price-card home">
+        <span class="eyebrow">Home base · fastest response</span>
+        <span class="city">Huntington Beach</span>
+        <span class="amt" data-day="$70" data-night="$100">$70</span>
+        <span class="sub">3 miles included · $5/mi after<span class="alt" data-day="$100 · 10pm–6am" data-night="$70 · 6am–10pm">$100 · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Westminster</span>
+        <span class="amt" data-day="$75" data-night="$105">$75</span>
+        <span class="sub">3 mi · $5/mi after<span class="alt" data-day="$105 · 10pm–6am" data-night="$75 · 6am–10pm">$105 · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Garden Grove</span>
+        <span class="amt" data-day="$80" data-night="$110">$80</span>
+        <span class="sub">3 mi · $5/mi after<span class="alt" data-day="$110 · 10pm–6am" data-night="$80 · 6am–10pm">$110 · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Stanton</span>
+        <span class="amt" data-day="$80" data-night="$110">$80</span>
+        <span class="sub">3 mi · $5/mi after<span class="alt" data-day="$110 · 10pm–6am" data-night="$80 · 6am–10pm">$110 · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Santa Ana</span>
+        <span class="amt" data-day="$80" data-night="$110">$80</span>
+        <span class="sub">3 mi · $5/mi after<span class="alt" data-day="$110 · 10pm–6am" data-night="$80 · 6am–10pm">$110 · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Cypress</span>
+        <span class="amt" data-day="$85" data-night="$115">$85</span>
+        <span class="sub">3 mi · $5/mi after<span class="alt" data-day="$115 · 10pm–6am" data-night="$85 · 6am–10pm">$115 · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Costa Mesa</span>
+        <span class="amt" data-day="$85" data-night="$115">$85</span>
+        <span class="sub">3 mi · $5/mi after<span class="alt" data-day="$115 · 10pm–6am" data-night="$85 · 6am–10pm">$115 · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Buena Park</span>
+        <span class="amt" data-day="$85" data-night="$115">$85</span>
+        <span class="sub">3 mi · $5/mi after<span class="alt" data-day="$115 · 10pm–6am" data-night="$85 · 6am–10pm">$115 · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Irvine</span>
+        <span class="amt" data-day="$90" data-night="$120">$90</span>
+        <span class="sub">3 mi · $5/mi after<span class="alt" data-day="$120 · 10pm–6am" data-night="$90 · 6am–10pm">$120 · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Los Alamitos</span>
+        <span class="amt" data-day="$95" data-night="$125">$95</span>
+        <span class="sub">3 mi · $5/mi after<span class="alt" data-day="$125 · 10pm–6am" data-night="$95 · 6am–10pm">$125 · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Long Beach — East</span>
+        <span class="amt" data-day="$95" data-night="$125">$95</span>
+        <span class="sub">East of the Traffic Circle<span class="alt" data-day="$125 · 10pm–6am" data-night="$95 · 6am–10pm">$125 · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Long Beach — West</span>
+        <span class="amt" data-day="$100" data-night="$130">$100</span>
+        <span class="sub">West of the Traffic Circle<span class="alt" data-day="$130 · 10pm–6am" data-night="$100 · 6am–10pm">$130 · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Lakewood</span>
+        <span class="amt" data-day="$100" data-night="$130">$100</span>
+        <span class="sub">3 mi · $5/mi after<span class="alt" data-day="$130 · 10pm–6am" data-night="$100 · 6am–10pm">$130 · 10pm–6am</span></span>
+      </div>
+    </div>
+
+    <div class="price-sub-head">
+      <h3 class="h-display">Roadside services</h3>
+      <span class="c">Same $30 after-hours surcharge, 10pm–6am Mon–Sat</span>
+    </div>
+
+    <div class="price-grid">
+      <div class="price-card">
+        <span class="city">Jump start</span>
+        <span class="amt" data-day="$85" data-night="$115">$85</span>
+        <span class="sub">Battery tested on site<span class="alt" data-day="$115 · 10pm–6am" data-night="$85 · 6am–10pm">$115 · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Lockout</span>
+        <span class="amt" data-day="$85+" data-night="$115+">$85+</span>
+        <span class="sub">Varies by vehicle<span class="alt" data-day="$115+ · 10pm–6am" data-night="$85+ · 6am–10pm">$115+ · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Tire change</span>
+        <span class="amt" data-day="$85+" data-night="$115+">$85+</span>
+        <span class="sub">Varies by vehicle<span class="alt" data-day="$115+ · 10pm–6am" data-night="$85+ · 6am–10pm">$115+ · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Gas delivery</span>
+        <span class="amt" data-day="$55+" data-night="$85+">$55+</span>
+        <span class="sub">Plus the cost of fuel<span class="alt" data-day="$85+ · 10pm–6am" data-night="$55+ · 6am–10pm">$85+ · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Battery replacement</span>
+        <span class="amt range" data-day="$75–$150" data-night="$105–$180">$75–$150</span>
+        <span class="sub">Based on vehicle type<span class="alt" data-day="$105–$180 · 10pm–6am" data-night="$75–$150 · 6am–10pm">$105–$180 · 10pm–6am</span></span>
+      </div>
+      <div class="price-card">
+        <span class="city">Parking garage pull-out</span>
+        <span class="amt" data-day="$45+" data-night="$75+">$45+</span>
+        <span class="sub">Add-on to a tow<span class="alt" data-day="$75+ · 10pm–6am" data-night="$45+ · 6am–10pm">$75+ · 10pm–6am</span></span>
+      </div>
+    </div>
+
+    <div class="price-fine">
+      <strong>What the flat rate covers.</strong> A straight hook and go: the vehicle is reachable from the front or rear on the street, and the first three miles are included at $5 per mile after that.
+      <ul>
+        <li>Dollies, lockouts, and jump starts are not part of the base tow rate.</li>
+        <li>Extra positioning — dead in a garage, or a mechanical issue that blocks hookup — adds <strong>$45</strong>.</li>
+        <li>Anything outside the cities listed above gets quoted on the phone before we roll.</li>
+      </ul>
     </div>
   </section>
 
@@ -671,6 +845,28 @@
 
       load(1);
       start();
+    }
+
+    // 4) Pricing — day rate vs. late-night rate (10pm–6am, +$30).
+    //    Auto-selects the night rate when the visitor loads the page during those
+    //    hours; the switch lets anyone flip between the two either way.
+    var sw = document.getElementById('rate-switch');
+    var lblDay = document.getElementById('lbl-day');
+    var lblNight = document.getElementById('lbl-night');
+    if (sw && lblDay && lblNight) {
+      var setRates = function (night) {
+        sw.setAttribute('aria-checked', night ? 'true' : 'false');
+        lblDay.classList.toggle('is-on', !night);
+        lblNight.classList.toggle('is-on', night);
+        document.querySelectorAll('.price-card .amt, .price-card .alt').forEach(function (el) {
+          var v = night ? el.getAttribute('data-night') : el.getAttribute('data-day');
+          if (v) { el.textContent = v; }
+        });
+      };
+      setRates(openNow && (hour >= 22 || hour < 6));
+      sw.addEventListener('click', function () {
+        setRates(sw.getAttribute('aria-checked') !== 'true');
+      });
     }
   })();
 </script>
