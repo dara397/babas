@@ -87,15 +87,26 @@
 
   /* Hero */
   .hero{background:var(--dark);color:#fff;overflow:hidden}
-  .hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center;padding:104px 28px 96px;max-width:var(--maxw);margin:0 auto}
-  .hero-flags{display:flex;align-items:center;gap:14px;margin-bottom:28px;flex-wrap:wrap}
+  .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center;padding:92px 28px 88px;max-width:var(--maxw);margin:0 auto}
   .flag-live{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(143,227,192,.35);color:var(--mint);padding:7px 14px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
   .flag-live .dot{width:7px;height:7px}
   .flag-live.is-closed{border-color:rgba(248,113,113,.5);color:#F87171}
   .flag-live.is-closed .dot{background:#F87171}
-  .flag-exp{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#9A948A}
-  .hero h1{font-family:var(--sans);font-size:clamp(32px,4.4vw,50px);line-height:1.14;font-weight:600;margin-bottom:26px;letter-spacing:-.022em;text-wrap:pretty}
-  .hero-sub{font-size:19px;line-height:1.6;color:var(--on-dark);margin-bottom:40px;max-width:56ch;text-wrap:pretty}
+  /* quiet status line in the top bar (same .flag-live hook the script updates) */
+  .header-status{border:0;border-left:1px solid rgba(255,255,255,.12);border-radius:0;padding:2px 0 2px 20px;color:var(--on-dark-2);font-size:11.5px;letter-spacing:.1em}
+  .header-status.is-closed{color:#F87171;border-left-color:rgba(255,255,255,.12)}
+  .hero-status-m{display:none;margin-bottom:22px}
+  /* stat rows under the photo panel */
+  .hero-panel{min-width:0}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;margin-top:26px;border-top:1px solid rgba(255,255,255,.12)}
+  .hero-stat{padding:18px 4px 0;border-right:1px solid rgba(255,255,255,.12)}
+  .hero-stat:nth-child(2n){border-right:0;padding-left:22px}
+  .hero-stat:nth-child(n+3){padding-top:20px;margin-top:18px;border-top:1px solid rgba(255,255,255,.12)}
+  .hero-stat b{display:block;font-family:var(--serif);font-size:27px;font-weight:400;letter-spacing:-.01em;color:#fff;line-height:1.1;margin-bottom:5px}
+  .hero-stat span{display:block;font-size:12.5px;color:var(--on-dark-2);letter-spacing:.02em}
+  .hero-stat .stars{font-style:normal;font-size:11px;letter-spacing:1.5px}
+  .hero h1{font-family:var(--serif);font-size:clamp(38px,4.7vw,58px);line-height:1.13;font-weight:400;margin:0 0 26px;letter-spacing:-.015em;max-width:18ch;text-wrap:pretty}
+  .hero-sub{font-size:17.5px;line-height:1.7;color:var(--on-dark);margin:0 0 40px;max-width:48ch;text-wrap:pretty}
   .hero-ctas{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
   .btn-call-big{display:flex;flex-direction:column;background:var(--green);color:#fff;padding:18px 34px;border-radius:14px;box-shadow:0 12px 30px rgba(46,127,98,.32)}
   .btn-call-big:hover{background:var(--green-hover);color:#fff}
@@ -103,7 +114,6 @@
   .btn-call-big .n{font-size:26px;font-weight:700;letter-spacing:-.01em}
   .btn-outline{border:1px solid rgba(255,255,255,.28);color:#fff;padding:18px 30px;border-radius:14px;font-weight:600;font-size:16px}
   .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.06);color:#fff}
-  .hero-rating{display:flex;align-items:center;gap:12px;margin-top:36px;color:#9A948A;font-size:14px;flex-wrap:wrap}
   .stars{color:var(--gold);letter-spacing:2px;font-size:16px}
   .hero-photo{border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:10px;background:rgba(255,255,255,.03)}
   /* Hero slideshow: auto-rotating photo + thumbnail picker */
@@ -275,7 +285,7 @@
     .hero-inner{padding:72px 28px 64px}
     .section{padding:72px 28px 24px}
     .about,.location,.reviews .inner,.request .inner{padding:72px 28px}
-    .hero-photo{max-width:460px}
+    .hero-panel{max-width:460px}
   }
   @media (max-width:720px){
     .reviews-grid{grid-template-columns:1fr}
@@ -283,6 +293,12 @@
   @media (max-width:640px){
     .nav{gap:0}
     .nav-link{display:none}
+    .header-status{display:none}
+    .hero-status-m{display:inline-flex}
+    .hero-stat b{font-size:23px}
+    .brand img{height:44px}
+    .btn-call{white-space:nowrap;padding:11px 16px;font-size:14px;gap:8px}
+    .hero-inner{padding-top:48px;padding-bottom:56px}
     .wrap,.header-inner,.trustbar .row,.hero-inner,.section,.about,.reviews .inner,.location,.request .inner,.footer-inner{padding-left:20px;padding-right:20px}
     .form-grid{grid-template-columns:1fr}
     .field.span2,.btn-submit{grid-column:auto}
@@ -301,6 +317,7 @@
       <img src="assets/logo.png" alt="Guardian Towing Services logo" width="1351" height="1164">
       <span class="brand-loc">Huntington Beach<br>California</span>
     </a>
+    <span class="flag-live header-status"><span class="dot"></span>Open now — 24 hours</span>
     <nav class="nav" aria-label="Primary">
       <a class="nav-link" href="#services">Services</a>
       <a class="nav-link" href="#pricing">Pricing</a>
@@ -316,10 +333,7 @@
   <section class="hero" aria-labelledby="hero-h">
     <div class="hero-inner">
       <div>
-        <div class="hero-flags">
-          <span class="flag-live"><span class="dot"></span>Open now — 24 hours</span>
-          <span class="flag-exp">25 years experience</span>
-        </div>
+        <span class="flag-live hero-status-m"><span class="dot"></span>Open now — 24 hours</span>
         <h1 id="hero-h">When everyone else says they can't, we come get it done.</h1>
         <p class="hero-sub">Light and heavy towing, recovery, and roadside help across the Huntington Beach area. One call, day or night.</p>
         <div class="hero-ctas">
@@ -329,34 +343,40 @@
           </a>
           <a class="btn-outline" href="#request">Request a tow online</a>
         </div>
-        <div class="hero-rating">
-          <span class="stars" aria-hidden="true">★★★★★</span>
-          <span>5.0 on Yelp · Claimed business · Online appointments available</span>
-        </div>
       </div>
-      <div class="hero-photo">
-        <div class="hero-stage" id="hero-stage">
-          <img class="hero-slide is-active" src="assets/slide-1.webp" alt="Guardian Towing tow truck loading a white Lamborghini at night in Huntington Beach" width="960" height="720" fetchpriority="high" decoding="async">
-          <img class="hero-slide" data-src="assets/slide-2.webp" alt="Guardian Towing tow truck towing a white Porsche 911 GT3 RS from a private driveway" width="960" height="720" decoding="async">
-          <img class="hero-slide" data-src="assets/slide-3.webp" alt="Guardian Towing Ram 5500 tow truck with a blue Dodge Charger on wheel dollies" width="960" height="720" decoding="async">
-          <img class="hero-slide" data-src="assets/slide-4.webp" alt="White Porsche 911 GT3 RS lifted on wheel dollies for a damage-free tow" width="960" height="720" decoding="async">
-          <img class="hero-slide" data-src="assets/slide-5.webp" alt="Blue Dodge Charger Scat Pack Widebody loaded on wheel dollies" width="960" height="720" decoding="async">
-          <img class="hero-slide" data-src="assets/slide-6.webp" alt="Ferrari 488 wheel secured with soft straps and padding for a no-scratch tow" width="960" height="720" decoding="async">
-          <img class="hero-slide" data-src="assets/slide-7.webp" alt="Chevrolet Silverado pickup lifted on wheel dollies in a residential driveway" width="960" height="720" decoding="async">
-          <img class="hero-slide" data-src="assets/slide-8.webp" alt="Classic Volkswagen Beetle body and chassis moved on a tow dolly" width="960" height="720" decoding="async">
-          <img class="hero-slide" data-src="assets/slide-9.webp" alt="Harley-Davidson motorcycle strapped down for motorcycle towing" width="960" height="720" decoding="async">
-        </div>
-        <div class="hero-thumbs" role="tablist" aria-label="Choose a job photo">
-          <button class="hero-thumb is-active" type="button" role="tab" aria-selected="true" aria-controls="hero-stage" aria-label="Show photo 1: Guardian Towing tow truck loading a white Lamborghini at night in Huntington Beach"><img src="assets/thumb-1.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
-          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 2: Guardian Towing tow truck towing a white Porsche 911 GT3 RS from a private driveway"><img src="assets/thumb-2.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
-          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 3: Guardian Towing Ram 5500 tow truck with a blue Dodge Charger on wheel dollies"><img src="assets/thumb-3.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
-          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 4: White Porsche 911 GT3 RS lifted on wheel dollies for a damage-free tow"><img src="assets/thumb-4.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
-          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 5: Blue Dodge Charger Scat Pack Widebody loaded on wheel dollies"><img src="assets/thumb-5.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
-          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 6: Ferrari 488 wheel secured with soft straps and padding for a no-scratch tow"><img src="assets/thumb-6.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
-          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 7: Chevrolet Silverado pickup lifted on wheel dollies in a residential driveway"><img src="assets/thumb-7.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
-          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 8: Classic Volkswagen Beetle body and chassis moved on a tow dolly"><img src="assets/thumb-8.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
-          <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 9: Harley-Davidson motorcycle strapped down for motorcycle towing"><img src="assets/thumb-9.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
-        </div>
+
+      <div class="hero-panel">
+        <div class="hero-photo">
+          <div class="hero-stage" id="hero-stage">
+            <img class="hero-slide is-active" src="assets/slide-1.webp" alt="Guardian Towing tow truck loading a white Lamborghini at night in Huntington Beach" width="960" height="720" fetchpriority="high" decoding="async">
+            <img class="hero-slide" data-src="assets/slide-2.webp" alt="Guardian Towing tow truck towing a white Porsche 911 GT3 RS from a private driveway" width="960" height="720" decoding="async">
+            <img class="hero-slide" data-src="assets/slide-3.webp" alt="Guardian Towing Ram 5500 tow truck with a blue Dodge Charger on wheel dollies" width="960" height="720" decoding="async">
+            <img class="hero-slide" data-src="assets/slide-4.webp" alt="White Porsche 911 GT3 RS lifted on wheel dollies for a damage-free tow" width="960" height="720" decoding="async">
+            <img class="hero-slide" data-src="assets/slide-5.webp" alt="Blue Dodge Charger Scat Pack Widebody loaded on wheel dollies" width="960" height="720" decoding="async">
+            <img class="hero-slide" data-src="assets/slide-6.webp" alt="Ferrari 488 wheel secured with soft straps and padding for a no-scratch tow" width="960" height="720" decoding="async">
+            <img class="hero-slide" data-src="assets/slide-7.webp" alt="Chevrolet Silverado pickup lifted on wheel dollies in a residential driveway" width="960" height="720" decoding="async">
+            <img class="hero-slide" data-src="assets/slide-8.webp" alt="Classic Volkswagen Beetle body and chassis moved on a tow dolly" width="960" height="720" decoding="async">
+            <img class="hero-slide" data-src="assets/slide-9.webp" alt="Harley-Davidson motorcycle strapped down for motorcycle towing" width="960" height="720" decoding="async">
+          </div>
+          <div class="hero-thumbs" role="tablist" aria-label="Choose a job photo">
+            <button class="hero-thumb is-active" type="button" role="tab" aria-selected="true" aria-controls="hero-stage" aria-label="Show photo 1: Guardian Towing tow truck loading a white Lamborghini at night in Huntington Beach"><img src="assets/thumb-1.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+            <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 2: Guardian Towing tow truck towing a white Porsche 911 GT3 RS from a private driveway"><img src="assets/thumb-2.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+            <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 3: Guardian Towing Ram 5500 tow truck with a blue Dodge Charger on wheel dollies"><img src="assets/thumb-3.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+            <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 4: White Porsche 911 GT3 RS lifted on wheel dollies for a damage-free tow"><img src="assets/thumb-4.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+            <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 5: Blue Dodge Charger Scat Pack Widebody loaded on wheel dollies"><img src="assets/thumb-5.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+            <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 6: Ferrari 488 wheel secured with soft straps and padding for a no-scratch tow"><img src="assets/thumb-6.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+            <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 7: Chevrolet Silverado pickup lifted on wheel dollies in a residential driveway"><img src="assets/thumb-7.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+            <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 8: Classic Volkswagen Beetle body and chassis moved on a tow dolly"><img src="assets/thumb-8.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+            <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 9: Harley-Davidson motorcycle strapped down for motorcycle towing"><img src="assets/thumb-9.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+          </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat"><b>Under 45 min</b><span>Typical time to arrival</span></div>
+        <div class="hero-stat"><b>25 years</b><span>Serving Huntington Beach</span></div>
+        <div class="hero-stat"><b>Flat rate</b><span>Quoted before dispatch</span></div>
+        <div class="hero-stat"><b>5.0</b><span><i class="stars" aria-hidden="true">★★★★★</i> Rating on Yelp</span></div>
+      </div>
       </div>
     </div>
   </section>
