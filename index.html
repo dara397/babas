@@ -16,7 +16,7 @@
 <meta name="description" content="24-hour towing, recovery and roadside assistance across the Huntington Beach area. Light and heavy towing, lockouts, winch-outs, motorcycle towing and more. Call (714) 584-5600.">
 <link rel="canonical" href="https://dara397.github.io/babas/">
 <meta name="robots" content="index,follow">
-<meta name="theme-color" content="#211E1A">
+<meta name="theme-color" content="#1F2A1D">
 
 <!-- Open Graph / social -->
 <meta property="og:type" content="website">
@@ -41,7 +41,7 @@
   :root{
     --bg:#FBFAF8; --bg-alt:#F3F1EC; --card-hover:#F6F4F0; --img-bg:#EFECE6;
     --ink:#16202F; --ink-2:#26313F; --muted:#5B6779; --muted-2:#7A8494;
-    --dark:#211E1A; --dark-2:#191713; --dark-hover:#2E2A24;
+    --dark:#1F2A1D; --dark-2:#182116; --dark-hover:#2A3827;
     --on-dark:#C7C1B6; --on-dark-2:#9A948A; --on-dark-3:#DDD8CE;
     --green:#2E7F62; --green-hover:#25664F; --green-link:#2C5F4A;
     --mint:#8FE3C0; --mint-2:#B4EBD3;
@@ -72,7 +72,7 @@
   .skip:focus{left:16px;top:16px}
 
   /* Header */
-  .site-header{position:sticky;top:0;z-index:50;background:rgba(33,30,26,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.1)}
+  .site-header{position:sticky;top:0;z-index:50;background:rgba(31,42,29,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.1)}
   .header-inner{display:flex;align-items:center;gap:24px;padding:12px 28px;max-width:var(--maxw);margin:0 auto}
   .brand{display:flex;align-items:center;gap:14px;color:#fff}
   .brand:hover{color:#fff}
@@ -115,16 +115,16 @@
   .btn-outline{border:1px solid rgba(255,255,255,.28);color:#fff;padding:18px 30px;border-radius:14px;font-weight:600;font-size:16px}
   .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.06);color:#fff}
   .stars{color:var(--gold);letter-spacing:2px;font-size:16px}
-  .hero-photo{border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:10px;background:rgba(255,255,255,.03)}
+  .hero-photo{border:0;border-radius:16px;padding:0;background:none}
   /* Hero slideshow: auto-rotating photo + thumbnail picker */
-  .hero-stage{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:rgba(255,255,255,.05)}
+  .hero-stage{position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:rgba(0,0,0,.22)}
   .hero-slide{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
   .hero-slide.is-active{opacity:1}
   .hero-thumbs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:10px}
-  .hero-thumb{display:block;flex:0 0 calc((100% - 32px)/5);padding:0;margin:0;border:1px solid rgba(255,255,255,.16);border-radius:8px;overflow:hidden;background:none;cursor:pointer;opacity:.5;transition:opacity .25s ease,border-color .25s ease;-webkit-appearance:none;appearance:none}
+  .hero-thumb{display:block;flex:0 0 calc((100% - 32px)/5);padding:0;margin:0;border:0;border-radius:8px;overflow:hidden;background:none;cursor:pointer;opacity:.42;transition:opacity .25s ease;-webkit-appearance:none;appearance:none}
   .hero-thumb img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
-  .hero-thumb:hover{opacity:.85}
-  .hero-thumb.is-active{opacity:1;border-color:var(--mint)}
+  .hero-thumb:hover{opacity:.8}
+  .hero-thumb.is-active{opacity:1}
   .hero-thumb:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
   @media (prefers-reduced-motion:reduce){.hero-slide{transition:none}}
 
