@@ -25,8 +25,8 @@ click the link in it once, then all future submissions arrive automatically.
 Submit a test yourself to activate it.
 
 ## URLs / domain
-Canonical, Open Graph, and JSON-LD URLs point to https://dara397.github.io/babas/.
-If you move to a custom domain, update those references in `index.html`.
+Canonical, Open Graph, and JSON-LD URLs point to https://www.guardiantowingservice.com/.
+Also mirrored in `robots.txt` and `sitemap.xml` - keep all four in sync if the domain changes.
 
 ## Publishing (GitHub Pages)
 Settings > Pages > Branch: `main`, Folder: `/ (root)`.
