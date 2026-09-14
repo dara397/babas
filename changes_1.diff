@@ -1,0 +1,131 @@
+--- index.orig.html	2026-09-14 17:56:30.205209419 +0000
++++ index.html	2026-09-14 17:58:45.631654409 +0000
+@@ -13,7 +13,7 @@
+      ============================================================ -->
+ 
+ <title>Guardian Towing Services — 24 Hour Towing in Huntington Beach, CA</title>
+-<meta name="description" content="24-hour towing, recovery and roadside assistance across the Huntington Beach area. Light and heavy towing, lockouts, winch-outs, motorcycle towing and more. Call (714) 584-5600.">
++<meta name="description" content="24-hour towing, recovery and roadside assistance across the Huntington Beach area. Light and heavy towing, lockouts, winch-outs, vehicle recovery and more. Call (714) 584-5600.">
+ <link rel="canonical" href="https://www.guardiantowingservice.com/">
+ <meta name="robots" content="index,follow">
+ <meta name="theme-color" content="#1F2A1D">
+@@ -156,6 +156,11 @@
+   /* About + photos */
+   .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start;padding:96px 28px;max-width:var(--maxw);margin:0 auto}
+   .about-lead{font-family:var(--serif);font-size:clamp(28px,3.6vw,34px);line-height:1.32;font-weight:400;margin-top:20px;text-wrap:pretty}
++  .about h2{font-size:clamp(32px,4.4vw,44px);margin:14px 0 0}
++  .about .about-lead{font-size:clamp(22px,2.6vw,27px);line-height:1.38;margin-top:18px}
++  .about-body{color:var(--muted);font-size:16px;line-height:1.7;margin-top:20px;max-width:54ch;text-wrap:pretty}
++  .about-body strong{color:var(--ink);font-weight:600}
++  .about .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 40px}
+   .stats{display:flex;gap:44px;margin-top:44px;padding-top:32px;border-top:1px solid var(--line);flex-wrap:wrap}
+   .stat .v{font-family:var(--serif);font-size:40px;line-height:1}
+   .stat .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);font-weight:600;margin-top:6px}
+@@ -321,6 +326,7 @@
+     <nav class="nav" aria-label="Primary">
+       <a class="nav-link" href="#services">Services</a>
+       <a class="nav-link" href="#pricing">Pricing</a>
++      <a class="nav-link" href="#about">About</a>
+       <a class="nav-link" href="#reviews">Reviews</a>
+       <a class="nav-link" href="#hours">Hours &amp; Area</a>
+       <a class="btn-call" href="tel:+17145845600"><span class="dot"></span>(714)&nbsp;584-5600</a>
+@@ -356,7 +362,6 @@
+             <img class="hero-slide" data-src="assets/slide-6.webp" alt="Ferrari 488 wheel secured with soft straps and padding for a no-scratch tow" width="960" height="720" decoding="async">
+             <img class="hero-slide" data-src="assets/slide-7.webp" alt="Chevrolet Silverado pickup lifted on wheel dollies in a residential driveway" width="960" height="720" decoding="async">
+             <img class="hero-slide" data-src="assets/slide-8.webp" alt="Classic Volkswagen Beetle body and chassis moved on a tow dolly" width="960" height="720" decoding="async">
+-            <img class="hero-slide" data-src="assets/slide-9.webp" alt="Harley-Davidson motorcycle strapped down for motorcycle towing" width="960" height="720" decoding="async">
+           </div>
+           <div class="hero-thumbs" role="tablist" aria-label="Choose a job photo">
+             <button class="hero-thumb is-active" type="button" role="tab" aria-selected="true" aria-controls="hero-stage" aria-label="Show photo 1: Guardian Towing tow truck loading a white Lamborghini at night in Huntington Beach"><img src="assets/thumb-1.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+@@ -367,7 +372,6 @@
+             <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 6: Ferrari 488 wheel secured with soft straps and padding for a no-scratch tow"><img src="assets/thumb-6.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+             <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 7: Chevrolet Silverado pickup lifted on wheel dollies in a residential driveway"><img src="assets/thumb-7.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+             <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 8: Classic Volkswagen Beetle body and chassis moved on a tow dolly"><img src="assets/thumb-8.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+-            <button class="hero-thumb" type="button" role="tab" aria-selected="false" aria-controls="hero-stage" aria-label="Show photo 9: Harley-Davidson motorcycle strapped down for motorcycle towing"><img src="assets/thumb-9.webp" alt="" width="220" height="165" loading="lazy" decoding="async"></button>
+           </div>
+       </div>
+ 
+@@ -385,7 +389,7 @@
+     <div class="row">
+       <span>Fast ETAs — under 45 minutes typical</span>
+       <span>Garage &amp; tight-spot recovery with wheel dollies</span>
+-      <span>Motorcycles, trailers, trucks &amp; SUVs</span>
++      <span>Trailers, trucks, SUVs &amp; exotics</span>
+       <span class="push">Serving the Huntington Beach area</span>
+     </div>
+   </section>
+@@ -401,14 +405,13 @@
+     <div class="services-grid">
+       <div class="svc"><span class="num">01</span><h3>Trailer towing</h3><p>Utility, boat, and cargo trailers moved or recovered.</p></div>
+       <div class="svc"><span class="num">02</span><h3>Truck or SUV towing</h3><p>Full-size trucks and SUVs, flatbed or wheel-lift.</p></div>
+-      <div class="svc"><span class="num">03</span><h3>Motorcycle towing</h3><p>Secured, strapped, and hauled without a scratch.</p></div>
+-      <div class="svc"><span class="num">04</span><h3>Lockouts</h3><p>Lost the keys to your baby? We'll get it done.</p></div>
+-      <div class="svc"><span class="num">05</span><h3>Stuck vehicle recovery</h3><p>Garages, sand, ditches, tight spots. Wheel dollies when needed.</p></div>
+-      <div class="svc"><span class="num">06</span><h3>Battery replacement</h3><p>Tested and swapped on the spot so you can drive off.</p></div>
+-      <div class="svc"><span class="num">07</span><h3>Gas delivery</h3><p>Fuel brought to you wherever you ran dry.</p></div>
+-      <div class="svc"><span class="num">08</span><h3>Car transport</h3><p>Point-to-point vehicle moves, dealerships and shops included.</p></div>
++      <div class="svc"><span class="num">03</span><h3>Lockouts</h3><p>Lost the keys to your baby? We'll get it done.</p></div>
++      <div class="svc"><span class="num">04</span><h3>Stuck vehicle recovery</h3><p>Garages, sand, ditches, tight spots. Wheel dollies when needed.</p></div>
++      <div class="svc"><span class="num">05</span><h3>Battery replacement</h3><p>Tested and swapped on the spot so you can drive off.</p></div>
++      <div class="svc"><span class="num">06</span><h3>Gas delivery</h3><p>Fuel brought to you wherever you ran dry.</p></div>
++      <div class="svc"><span class="num">07</span><h3>Car transport</h3><p>Point-to-point vehicle moves, dealerships and shops included.</p></div>
+       <a class="svc-more" href="tel:+17145845600">
+-        <span class="num">09</span>
++        <span class="num">08</span>
+         <span>
+           <span class="t">Something else?</span>
+           <span class="d">Call and describe it — (714) 584-5600</span>
+@@ -551,12 +554,17 @@
+     </div>
+   </section>
+ 
+-  <section class="about" aria-labelledby="about-h">
++  <section class="about" id="about" aria-labelledby="about-h">
+     <div>
+-      <span class="eyebrow" id="about-h">About the business</span>
+-      <p class="about-lead">When your roadside providers say no they can't, Guardian will come take care of it for you. With 25 years of experience in the towing industry there isn't much that we can't do.</p>
++      <span class="eyebrow">About us</span>
++      <h2 id="about-h" class="h-display">One truck. One operator. No handoffs.</h2>
++      <p class="about-lead">When your roadside provider says they can't, Guardian comes and gets it done.</p>
++      <p class="about-body">Guardian is <strong>owner-operated</strong>, and that is the whole point. The person who answers the phone is the same person who shows up, hooks your vehicle, and drives it where it's going. Nothing gets handed to a subcontractor, nothing gets explained twice, and nobody arrives who hasn't been doing this for 25 years.</p>
++      <p class="about-body">It's also why the work looks the way it does. Soft straps on the wheels that need them. Dollies when a car won't roll. The extra ten minutes it takes to back a car out of a tight parking garage without touching a bumper. Twenty-five years in this industry means there isn't much that hasn't come up before — and running one truck means there's never a reason to rush your car to get to the next call.</p>
++      <p class="about-body">Staying small is deliberate. You get a straight answer on the phone about whether the job can be done, an honest arrival time instead of a guess, and a price quoted before anyone is dispatched.</p>
+       <div class="stats">
+         <div class="stat"><div class="v">25</div><div class="k">Years in towing</div></div>
++        <div class="stat"><div class="v">1</div><div class="k">Owner-operator</div></div>
+         <div class="stat"><div class="v">24/7</div><div class="k">Dispatch</div></div>
+         <div class="stat"><div class="v">5.0</div><div class="k">Yelp rating</div></div>
+       </div>
+@@ -564,7 +572,7 @@
+     <div>
+       <div class="gallery-head">
+         <span class="eyebrow">Photos</span>
+-        <span class="c">7 photos</span>
++        <span class="c">6 photos</span>
+       </div>
+       <div class="gallery">
+         <figure><img src="assets/photo-1.webp" alt="Night tow of a sports car in Huntington Beach" width="348" height="348" loading="lazy" decoding="async"></figure>
+@@ -573,7 +581,6 @@
+         <figure><img src="assets/photo-4.webp" alt="SUV recovery down an embankment beside railroad tracks" width="348" height="348" loading="lazy" decoding="async"></figure>
+         <figure><img src="assets/photo-5.webp" alt="Chevy Silverado lifted on dollies in a driveway" width="348" height="348" loading="lazy" decoding="async"></figure>
+         <figure><img src="assets/photo-6.webp" alt="Ferrari wheel secured with soft straps" width="348" height="348" loading="lazy" decoding="async"></figure>
+-        <figure><img src="assets/photo-7.webp" alt="Harley-Davidson motorcycle strapped for towing" width="348" height="348" loading="lazy" decoding="async"></figure>
+       </div>
+     </div>
+   </section>
+@@ -683,7 +690,6 @@
+               <option>Lockout</option>
+               <option>Battery replacement</option>
+               <option>Gas delivery</option>
+-              <option>Motorcycle towing</option>
+               <option>Car transport</option>
+             </select>
+           </label>
+@@ -754,7 +760,6 @@
+     "itemListElement": [
+       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Trailer towing" } },
+       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Truck or SUV towing" } },
+-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Motorcycle towing" } },
+       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lockouts" } },
+       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stuck vehicle recovery" } },
+       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Battery replacement" } },
