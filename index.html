@@ -190,10 +190,10 @@
   .location{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;padding:96px 28px;max-width:var(--maxw);margin:0 auto}
   .location h2{font-size:clamp(32px,4.4vw,44px);margin:14px 0 24px}
   .map{border-radius:16px;border:1px solid var(--line);overflow:hidden;background:var(--img-bg)}
-  .map img{display:block;width:100%;height:auto}
+  .map > img{display:block;width:100%;height:auto}
   .map{position:relative;aspect-ratio:961/600}
-  .map img{position:absolute;inset:0;height:100%;object-fit:cover}
-  .map.is-live img{display:none}
+  .map > img{position:absolute;inset:0;height:100%;object-fit:cover}
+  .map.is-live > img{display:none}
   .map .leaflet-container{position:absolute;inset:0;width:100%;height:100%;background:var(--img-bg);font-family:var(--sans)}
   .map .leaflet-tile-pane{filter:grayscale(1) contrast(.92) brightness(1.04)}
   .map .leaflet-interactive{cursor:pointer}
