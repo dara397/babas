@@ -86,6 +86,9 @@
   .section{max-width:var(--maxw);margin:0 auto;padding:88px 28px 8px}
   .section h2{font-size:clamp(32px,4.4vw,46px);margin:12px 0 18px}
   .intro{color:var(--muted);font-size:16px;line-height:1.7;max-width:64ch;margin-bottom:28px}
+  .price-grid.roadside{grid-template-columns:repeat(4,1fr)}
+  .price-grid.roadside .wide{grid-column:span 2}
+  @media (max-width:860px){.price-grid.roadside{grid-template-columns:1fr 1fr}}
   .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
   .price-grid.top{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:760px}
   .pc{background:#fff;padding:24px 22px 26px;display:flex;flex-direction:column}
@@ -222,7 +225,7 @@
       <div class="pc main"><span class="eyebrow">Flat tow rate · Buena Park</span><span class="amt">$85</span><span class="sub">3 miles included · $5/mi after</span><span class="night">$115 · 10pm–6am</span></div>
     </div>
     <h3 class="sub-h">Roadside services in Buena Park</h3>
-    <div class="price-grid"><div class="pc"><span class="t">Jump start</span><span class="amt sm">$85</span><span class="sub">Battery tested on site</span></div><div class="pc"><span class="t">Lockout</span><span class="amt sm">$85+</span><span class="sub">Varies by vehicle</span></div><div class="pc"><span class="t">Tire change</span><span class="amt sm">$85+</span><span class="sub">Varies by vehicle</span></div><div class="pc"><span class="t">Gas delivery</span><span class="amt sm">$55+</span><span class="sub">Plus the cost of fuel</span></div><div class="pc"><span class="t">Battery replacement</span><span class="amt sm">$75–$150</span><span class="sub">Based on vehicle type</span></div><div class="pc"><span class="t">Parking garage pull-out</span><span class="amt sm">$45+</span><span class="sub">Add-on to a tow</span></div></div>
+    <div class="price-grid roadside"><div class="pc"><span class="t">Jump start</span><span class="amt sm">$85</span><span class="sub">Battery tested on site</span></div><div class="pc"><span class="t">Lockout</span><span class="amt sm">$85+</span><span class="sub">Varies by vehicle</span></div><div class="pc"><span class="t">Tire change</span><span class="amt sm">$85+</span><span class="sub">Varies by vehicle</span></div><div class="pc"><span class="t">Gas delivery</span><span class="amt sm">$55+</span><span class="sub">Plus the cost of fuel</span></div><div class="pc"><span class="t">Battery replacement</span><span class="amt sm">$75–$150</span><span class="sub">Based on vehicle type</span></div><div class="pc"><span class="t">Parking garage pull-out</span><span class="amt sm">$45+</span><span class="sub">Add-on to a tow</span></div><div class="pc wide"><span class="t">Winch-out</span><span class="amt sm">$150</span><span class="sub">First 30 min · time after that advised on scene</span></div></div>
     <p class="fine">Extra positioning — a car dead in a garage, or a mechanical issue that blocks hookup — adds $45. Dollies, lockouts and jump starts aren't part of the base tow rate.</p>
   </section>
 
