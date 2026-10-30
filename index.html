@@ -191,6 +191,21 @@
   .location h2{font-size:clamp(32px,4.4vw,44px);margin:14px 0 24px}
   .map{border-radius:16px;border:1px solid var(--line);overflow:hidden;background:var(--img-bg)}
   .map img{display:block;width:100%;height:auto}
+  .map{position:relative;aspect-ratio:961/600}
+  .map img{position:absolute;inset:0;height:100%;object-fit:cover}
+  .map.is-live img{display:none}
+  .map .leaflet-container{position:absolute;inset:0;width:100%;height:100%;background:var(--img-bg);font-family:var(--sans)}
+  .map .leaflet-tile-pane{filter:grayscale(1) contrast(.92) brightness(1.04)}
+  .map .leaflet-interactive{cursor:pointer}
+  .svc-label{background:none;border:0}
+  .svc-label span{display:inline-block;transform:translate(-50%,-50%);white-space:nowrap;font-family:var(--narrow);font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dark);text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;pointer-events:none}
+  .svc-label.home span{font-size:12px;color:#fff;text-shadow:0 0 3px var(--dark),0 0 3px var(--dark)}
+  .leaflet-tooltip.svc-tip{font-family:var(--sans);font-size:13px;border-radius:8px;border:1px solid var(--line);box-shadow:0 4px 14px rgba(0,0,0,.12);color:var(--ink)}
+  @media (max-width:640px){.map{aspect-ratio:1/1}.svc-label span{font-size:9px}.svc-label.home span{font-size:10px}}
+  .map-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:12px 0 18px}
+  .map-hint{font-size:13px;color:var(--muted-2)}
+  .map-gmaps{font-size:14px;font-weight:600;color:var(--green-link)}
+  .map-gmaps:hover{color:var(--ink)}
   .location p{color:var(--muted);font-size:15px;line-height:1.65}
   .hours-list{margin-top:20px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
   .hours-row{display:flex;align-items:center;gap:16px;padding:17px 24px;border-bottom:1px solid var(--line-2)}
@@ -640,8 +655,12 @@
     <div>
       <span class="eyebrow">Location</span>
       <h2 id="location-h" class="h-display">Serving the Huntington Beach area</h2>
-      <div class="map">
+      <div class="map" id="service-map" role="region" aria-label="Interactive map of the cities we serve">
         <img src="assets/service-area.webp" alt="Service area map covering Huntington Beach, Long Beach, Garden Grove and Santa Ana" width="961" height="600" loading="lazy" decoding="async">
+      </div>
+      <div class="map-actions">
+        <span class="map-hint">Tap a city for prices and details</span>
+        <a class="map-gmaps" href="https://maps.google.com/?cid=16830749053161184061" target="_blank" rel="noopener">Open in Google Maps &#8599;</a>
       </div>
       <p>Coverage runs from Long Beach and Lakewood through Garden Grove to Santa Ana, and down the coast past Huntington Beach. Mobile service — we come to you. Online appointments available.</p>
       <nav class="area-links" aria-label="Cities we serve"><a href="/towing-westminster">Westminster</a><a href="/towing-garden-grove">Garden Grove</a><a href="/towing-stanton">Stanton</a><a href="/towing-santa-ana">Santa Ana</a><a href="/towing-cypress">Cypress</a><a href="/towing-costa-mesa">Costa Mesa</a><a href="/towing-buena-park">Buena Park</a><a href="/towing-irvine">Irvine</a><a href="/towing-los-alamitos">Los Alamitos</a><a href="/towing-long-beach">Long Beach</a><a href="/towing-lakewood">Lakewood</a></nav>
@@ -900,6 +919,24 @@
       });
     }
   })();
+</script>
+<script>
+/* Interactive service-area map: loads Leaflet only when the map nears the viewport */
+(function(){
+  var el=document.getElementById('service-map'); if(!el) return;
+  function load(){
+    var css=document.createElement('link'); css.rel='stylesheet'; css.href='/assets/leaflet.css'; document.head.appendChild(css);
+    var a=document.createElement('script'); a.src='/assets/leaflet.js';
+    a.onload=function(){ var b=document.createElement('script'); b.src='/assets/service-area.js';
+      b.onload=function(){ try{ window.initServiceMap(el); el.classList.add('is-live'); }catch(e){} };
+      document.head.appendChild(b); };
+    document.head.appendChild(a);
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ if(es.some(function(e){return e.isIntersecting})){ io.disconnect(); load(); } },{rootMargin:'400px'});
+    io.observe(el);
+  } else { load(); }
+})();
 </script>
 </body>
 </html>
