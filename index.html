@@ -185,23 +185,6 @@
   .gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
   .gallery figure:hover img{transform:scale(1.05)}
 
-  /* Reviews */
-  .reviews{background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .reviews .inner{padding:96px 28px;max-width:var(--maxw);margin:0 auto}
-  .reviews-head{display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:52px}
-  .reviews-head h2{font-size:clamp(34px,5vw,52px)}
-  .reviews-head .big-stars{color:var(--gold);letter-spacing:3px;font-size:20px;padding-bottom:8px}
-  .reviews-head .meta{color:var(--muted);font-size:15px;padding-bottom:12px}
-  .reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
-  .review{background:#fff;border:1px solid var(--line);border-radius:18px;padding:38px}
-  .review-top{display:flex;align-items:center;gap:14px;margin-bottom:22px}
-  .avatar{width:44px;height:44px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;flex:none}
-  .review-name{font-weight:600;font-size:15px}
-  .review-from{font-size:13px;color:var(--muted-2)}
-  .review-top .stars{margin-left:auto;letter-spacing:2px;font-size:14px}
-  .review p{font-size:16.5px;line-height:1.68;color:var(--ink-2)}
-  .review p+p{margin-top:16px}
-  .review .lead{font-weight:600}
 
   /* Location + hours */
   .location{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;padding:96px 28px;max-width:var(--maxw);margin:0 auto}
@@ -308,11 +291,10 @@
     .hero-inner,.about,.location,.request .inner{grid-template-columns:1fr;gap:48px}
     .hero-inner{padding:72px 28px 64px}
     .section{padding:72px 28px 24px}
-    .about,.location,.reviews .inner,.request .inner{padding:72px 28px}
+    .about,.location,.request .inner{padding:72px 28px}
     .hero-panel{max-width:460px}
   }
   @media (max-width:720px){
-    .reviews-grid{grid-template-columns:1fr}
   }
   @media (max-width:640px){
     .nav{gap:0}
@@ -323,7 +305,7 @@
     .brand img{height:44px}
     .btn-call{white-space:nowrap;padding:11px 16px;font-size:14px;gap:8px}
     .hero-inner{padding-top:48px;padding-bottom:56px}
-    .wrap,.header-inner,.trustbar .row,.hero-inner,.section,.about,.reviews .inner,.location,.request .inner,.footer-inner{padding-left:20px;padding-right:20px}
+    .wrap,.header-inner,.trustbar .row,.hero-inner,.section,.about,.location,.request .inner,.footer-inner{padding-left:20px;padding-right:20px}
     .form-grid{grid-template-columns:1fr}
     .field.span2,.btn-submit{grid-column:auto}
     .trustbar .push{margin-left:0}
@@ -386,7 +368,7 @@
       <a class="nav-link" href="#services">Services</a>
       <a class="nav-link" href="#pricing">Pricing</a>
       <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#reviews">Reviews</a>
+      <a class="nav-link" href="https://maps.google.com/?cid=16830749053161184061" target="_blank" rel="noopener">Reviews</a>
       <a class="nav-link" href="#hours">Hours &amp; Area</a>
       <a class="btn-call" href="tel:+17145845600"><span class="dot"></span>(714)&nbsp;584-5600</a>
     </nav>
@@ -644,44 +626,6 @@
     </div>
   </section>
 
-  <section class="reviews" id="reviews" aria-labelledby="reviews-h">
-    <div class="inner">
-      <div class="reviews-head">
-        <h2 id="reviews-h" class="h-display">What customers say</h2>
-        <span class="big-stars" aria-hidden="true">★★★★★</span>
-        <span class="meta">5.0 · 2 reviews on Yelp</span>
-      </div>
-      <div class="reviews-grid">
-        <article class="review">
-          <div class="review-top">
-            <div class="avatar" style="background:var(--dark)" aria-hidden="true">CC</div>
-            <div>
-              <div class="review-name">Charlie C.</div>
-              <div class="review-from">Austin, TX · May 14, 2026</div>
-            </div>
-            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-          </div>
-          <p>Ali and his company are top rate. Got to us faster then quoted.... Friendly and knew exactly what to do to get us back on the road. Even cracked a few jokes to help calm the nerves.</p>
-          <p>Got his number saved. He'll always be my first call!</p>
-        </article>
-        <article class="review">
-          <div class="review-top">
-            <div class="avatar" style="background:var(--green)" aria-hidden="true">JR</div>
-            <div>
-              <div class="review-name">Jose R.</div>
-              <div class="review-from">Torrance, CA · Mar 26, 2025 · First to Review</div>
-            </div>
-            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-          </div>
-          <p class="lead">Exceptional Service from Guardian Towing!</p>
-          <p>I can't thank Guardian Towing enough for their professionalism and efficiency! My car was completely dead inside my garage, and after spending six hours with a well-known roadside service that sent out multiple technicians, only to be told they couldn't help unless I got the car onto the street, I was beyond frustrated.</p>
-          <p>I contacted a few towing companies, and Guardian Towing was the only one that said they could handle the job. Their technician arrived within 45 minutes, assessed the situation, and used wheel dollies to safely move my car out of the garage. He then backed in with his tow truck, loaded the car up seamlessly, and had it towed to the BMW dealership--all in about 30 minutes!</p>
-          <p>The difference in expertise and professionalism was night and day. If you need a reliable towing company that knows what they're doing, Guardian Towing is the one to call!</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <section class="section faq-section" id="faq" aria-labelledby="faq-h">
     <div class="section-head">
       <div>
@@ -796,7 +740,7 @@
   </div>
 </footer>
 
-<!-- Structured data: helps Google understand the business, services, hours and reviews -->
+<!-- Structured data: helps Google understand the business, services and hours -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
