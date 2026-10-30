@@ -154,6 +154,14 @@
   .footer-contact .phone{color:var(--mint);font-weight:600;font-size:17px}
   .footer-social{font-size:13px;color:#9A948A}
   .sticky-call{display:none}
+  .svc-links{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px}
+  .svc-links a{color:var(--on-dark-3);font-size:13.5px}
+  .svc-links a:hover{color:var(--mint)}
+  .steps{counter-reset:s;list-style:none;margin:0;padding:0}
+  .steps li{counter-increment:s;position:relative;padding:14px 0 14px 44px;border-bottom:1px solid var(--line-2);font-size:15.5px;color:var(--ink-2);line-height:1.6}
+  .steps li:last-child{border-bottom:0}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:13px;width:28px;height:28px;border-radius:50%;background:var(--dark);color:var(--mint);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .body + .body{margin-top:16px}
 
   @media (max-width:920px){
     .split,.band-inner{grid-template-columns:1fr;gap:36px}
@@ -247,6 +255,7 @@
     <span class="eyebrow">Services</span>
     <h2 id="svc-h" class="h-display">Towing &amp; roadside help in Los Alamitos</h2>
     <div class="services-grid"><div class="svc"><h3>Car, truck &amp; SUV towing</h3><p>Full-size trucks and SUVs, sedans, and exotics — flatbed-style care with wheel dollies when needed.</p></div><div class="svc"><h3>Parking garage &amp; stuck-vehicle recovery</h3><p>Dead in a garage, wedged in a tight spot, or stuck off the pavement. We get it out without damage.</p></div><div class="svc"><h3>Lockouts</h3><p>Keys locked inside? We'll get you back in.</p></div><div class="svc"><h3>Jump starts &amp; battery replacement</h3><p>Battery tested on site and swapped on the spot when it's done.</p></div><div class="svc"><h3>Gas delivery</h3><p>Fuel brought to wherever you ran dry.</p></div><div class="svc"><h3>Trailer towing &amp; car transport</h3><p>Utility, boat and cargo trailers, plus point-to-point moves to shops and dealerships.</p></div></div>
+    <div class="chips" style="margin-top:22px"><a class="chip" href="/winch-out-service">Winch-out</a><a class="chip" href="/parking-garage-towing">Parking garage towing</a><a class="chip" href="/jump-start-service">Jump start &amp; battery</a><a class="chip" href="/lockout-service">Lockouts</a><a class="chip" href="/exotic-car-towing">Exotic &amp; luxury car towing</a></div>
   </section>
 
   <section class="band" aria-labelledby="why-h">
@@ -282,6 +291,7 @@
       <div class="footer-name">Guardian Towing Services</div>
       <div>Based in Huntington Beach, CA · Open 24 hours Mon–Sat · Sun 7:00 AM – 3:00 PM</div>
       <nav class="areas" aria-label="Service areas"><a href="/">Huntington Beach</a><a href="/towing-westminster">Westminster</a><a href="/towing-garden-grove">Garden Grove</a><a href="/towing-stanton">Stanton</a><a href="/towing-santa-ana">Santa Ana</a><a href="/towing-cypress">Cypress</a><a href="/towing-costa-mesa">Costa Mesa</a><a href="/towing-buena-park">Buena Park</a><a href="/towing-irvine">Irvine</a><a href="/towing-los-alamitos" aria-current="page">Los Alamitos</a><a href="/towing-long-beach">Long Beach</a><a href="/towing-lakewood">Lakewood</a></nav>
+      <nav class="svc-links" aria-label="Services"><a href="/winch-out-service">Winch-out</a><a href="/parking-garage-towing">Parking garage towing</a><a href="/jump-start-service">Jump start &amp; battery</a><a href="/lockout-service">Lockouts</a><a href="/exotic-car-towing">Exotic &amp; luxury car towing</a></nav>
     </div>
     <div class="footer-contact">
       <a class="phone" href="tel:+17145845600">(714) 584-5600</a>
