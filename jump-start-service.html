@@ -192,6 +192,27 @@
   .svc-links a{color:var(--on-dark-3);font-size:13.5px}
   .svc-links a:hover,.svc-links a[aria-current]{color:var(--mint)}
 </style>
+<!-- Google Analytics 4: page views + call-button taps -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V5JV5PY8JR"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-V5JV5PY8JR');
+// Count every tap on a phone link, and record which button it was.
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+  if (!a) return;
+  var names = { 'btn-call': 'header_button', 'btn-call-big': 'hero_button', 'sticky-call': 'mobile_sticky_bar', 'cta-dark': 'call_card', 'phone': 'footer', 'svc-more': 'services_section' };
+  var loc = 'in_text';
+  for (var k in names) { if (a.classList.contains(k)) { loc = names[k]; break; } }
+  if (loc === 'in_text') {
+    var s = a.closest('section[aria-labelledby], section[id]');
+    if (s) loc = 'text_' + (s.getAttribute('aria-labelledby') || s.id);
+  }
+  gtag('event', 'call_click', { link_location: loc });
+}, true);
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -289,6 +310,7 @@
       <div>Based in Huntington Beach, CA · Open 24 hours Mon–Sat · Sun 7:00 AM – 3:00 PM</div>
       <nav class="areas" aria-label="Service areas"><a href="/">Huntington Beach</a><a href="/towing-westminster">Westminster</a><a href="/towing-garden-grove">Garden Grove</a><a href="/towing-stanton">Stanton</a><a href="/towing-santa-ana">Santa Ana</a><a href="/towing-cypress">Cypress</a><a href="/towing-costa-mesa">Costa Mesa</a><a href="/towing-buena-park">Buena Park</a><a href="/towing-irvine">Irvine</a><a href="/towing-los-alamitos">Los Alamitos</a><a href="/towing-long-beach">Long Beach</a><a href="/towing-lakewood">Lakewood</a></nav>
       <nav class="svc-links" aria-label="Services"><a href="/winch-out-service">Winch-out</a><a href="/parking-garage-towing">Parking garage towing</a><a href="/jump-start-service" aria-current="page">Jump start &amp; battery</a><a href="/lockout-service">Lockouts</a><a href="/exotic-car-towing">Exotic &amp; luxury car towing</a></nav>
+      <div style="font-size:12px;opacity:.65;margin-top:10px">This site uses Google Analytics to count visits and call-button taps.</div>
     </div>
     <div class="footer-contact">
       <a class="phone" href="tel:+17145845600">(714) 584-5600</a>
