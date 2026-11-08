@@ -18,19 +18,28 @@ Flat tow rate by city, first 3 miles included, then $5 per mile. Every service d
 
 | City | Day | 10pm–6am |
 |---|---|---|
-| Huntington Beach | $70 | $100 |
-| Westminster | $75 | $105 |
-| Garden Grove | $80 | $110 |
-| Stanton | $80 | $110 |
-| Santa Ana | $80 | $110 |
-| Cypress | $85 | $115 |
-| Costa Mesa | $85 | $115 |
-| Buena Park | $85 | $115 |
-| Irvine | $90 | $120 |
-| Los Alamitos | $95 | $125 |
-| Long Beach (east of the Traffic Circle) | $95 | $125 |
-| Long Beach (west of the Traffic Circle) | $100 | $130 |
-| Lakewood | $100 | $130 |
+| Huntington Beach | $75 | $105 |
+| Westminster | $80 | $110 |
+| Garden Grove | $85 | $115 |
+| Stanton | $85 | $115 |
+| Santa Ana | $85 | $115 |
+| Seal Beach | $85 | $115 |
+| Cypress | $90 | $120 |
+| Costa Mesa | $90 | $120 |
+| Buena Park | $90 | $120 |
+| Tustin | $90 | $120 |
+| East Garden Grove | $90 | $120 |
+| Irvine | $95 | $125 |
+| Anaheim | $95 | $125 |
+| Los Alamitos | $100 | $130 |
+| Long Beach (east of the Traffic Circle) | $100 | $130 |
+| Newport Beach | $100 | $130 |
+| Long Beach (west of the Traffic Circle) | $105 | $135 |
+| Lakewood | $105 | $135 |
+| Lake Forest | $110 | $140 |
+| Corona del Mar | $115 | $145 |
+
+EV tows include dollies and labor, except the Audi e-tron GT, Porsche Taycan, Lucid, Hummer EV and Cadillac Escalade EV (quoted by phone). Expedited service is available for an additional $35 when applicable.
 
 Roadside services: jump start $85 (battery tested on site); lockout from $85; tire change from $85; gas delivery from $55 plus fuel; battery replacement $75–$150 depending on vehicle; winch-out $150 for the first 30 minutes (extra time advised on scene); extra positioning in parking garages or tight spots adds $45.
 
